@@ -1,4 +1,5 @@
 import Image from "next/image";
+import moment from "moment";
 
 export default function Post({
   title,
@@ -13,11 +14,12 @@ export default function Post({
         src={`http://localhost:1337${thumbnail.url}`}
         width={1280}
         height={750}
+        loading="lazy"
       />
       <h2>{title}</h2>
       <div>
         <span>{author.username}</span>
-        <span>{createdAt}</span>
+        <span>{moment(createdAt).fromNow()}</span>
       </div>
       <div>
         <p>{description}</p>

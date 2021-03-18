@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from "react-query/devtools";
 import { Hydrate } from "react-query/hydration";
 import { useRef } from "react";
 import Layout from "../components/Layout";
+import { UserProvider } from "../context/User";
 
 function MyApp({ Component, pageProps }) {
   const queryClientRef = useRef();
@@ -13,9 +14,12 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <QueryClientProvider client={queryClientRef.current}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <UserProvider>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </UserProvider>
+      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }

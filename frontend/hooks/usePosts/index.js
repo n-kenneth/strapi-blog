@@ -16,6 +16,7 @@ const getAllPosts = async () => {
         author {
           username
         }
+        createdAt
       }
     }
   `;

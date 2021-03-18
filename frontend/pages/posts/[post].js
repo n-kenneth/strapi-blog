@@ -6,9 +6,6 @@ import Link from "next/link";
 export default function Post({ post }) {
   return (
     <>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
       <Article {...post} />
     </>
   );
